@@ -14,7 +14,6 @@
         }
 
         body {
-            /* Warna latar belakang ultra soft pastel gradient */
             background: linear-gradient(135deg, #f8f6ff 0%, #fff5f7 50%, #f0f7ff 100%);
             color: #475569;
             display: flex;
@@ -22,7 +21,7 @@
             overflow: hidden;
         }
 
-        /* SIDEBAR SOFT PASTEL */
+        /* SIDEBAR / DESKTOP NAV */
         .sidebar {
             width: 280px;
             background: rgba(255, 255, 255, 0.85);
@@ -32,6 +31,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            flex-shrink: 0;
         }
 
         .sidebar-top {
@@ -52,6 +52,12 @@
             gap: 8px;
         }
 
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
         .menu-btn {
             background: transparent;
             border: none;
@@ -66,6 +72,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            white-space: nowrap;
         }
 
         .menu-btn:hover {
@@ -73,14 +80,13 @@
             color: #7c3aed;
         }
 
-        /* Tombol Aktif dengan Gradien Soft Lavender Pastel */
         .menu-btn.active {
             background: linear-gradient(135deg, #c4b5fd 0%, #f472b6 100%);
             color: #ffffff;
             box-shadow: 0 8px 16px -4px rgba(196, 181, 253, 0.5);
         }
 
-        /* KOTAK QUOTES / KATA MOTIVASI */
+        /* MOTIVASI QUOTE */
         .quote-card {
             background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%);
             border: 1px solid rgba(255, 255, 255, 0.9);
@@ -118,7 +124,7 @@
             font-weight: 700;
         }
 
-        /* AREA KONTEN UTAMA */
+        /* MAIN CONTENT */
         .main-content {
             flex: 1;
             padding: 32px 36px;
@@ -242,16 +248,16 @@
 
         .btn-submit:hover { opacity: 0.92; transform: translateY(-1px); }
 
-        /* TABLES & LISTS */
+        /* TABLES */
         .table-card {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 18px;
             border: 1px solid #f1f5f9;
-            overflow: hidden;
+            overflow-x: auto;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
-        .data-table { width: 100%; border-collapse: collapse; }
+        .data-table { width: 100%; border-collapse: collapse; min-width: 500px; }
         .data-table th, .data-table td {
             padding: 14px 18px;
             text-align: left;
@@ -259,6 +265,80 @@
             font-size: 13px;
         }
         .data-table th { background: #fafafa; color: #64748b; font-weight: 700; }
+
+        /* GRID CARDS ENTERTAINMENT */
+        .grid-media-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
+        .media-category-card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 18px;
+            border: 1px solid #f1f5f9;
+            padding: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #6b21a8;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f3e8ff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .category-item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .media-item {
+            background: #fafafa;
+            border: 1px solid #f1f5f9;
+            padding: 10px 12px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .media-item-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .media-item-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #334155;
+        }
+
+        .media-item-meta {
+            font-size: 10px;
+            color: #94a3b8;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .empty-category {
+            font-size: 12px;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 16px 0;
+            font-style: italic;
+        }
 
         /* BADGES */
         .badge {
@@ -285,31 +365,104 @@
 
         .btn-done { background: #dcfce7; color: #16a34a; }
         .btn-delete { background: #ffe4e6; color: #e11d48; }
+
+        /* RESPONSIVE HP */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                height: 100vh;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+                padding: 12px 16px;
+            }
+
+            .brand {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .sidebar-top {
+                gap: 6px;
+            }
+
+            .menu-list {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 4px;
+            }
+
+            .menu-btn {
+                padding: 8px 12px;
+                font-size: 12px;
+                border-radius: 10px;
+                flex-shrink: 0;
+            }
+
+            .quote-card {
+                display: none;
+            }
+
+            .main-content {
+                padding: 16px;
+            }
+
+            .greeting-banner {
+                padding: 16px 20px;
+                border-radius: 16px;
+                margin-bottom: 16px;
+            }
+
+            .greeting-banner h1 {
+                font-size: 18px;
+            }
+
+            .grid-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .card-stat {
+                padding: 14px;
+            }
+
+            .card-stat .number {
+                font-size: 22px;
+            }
+
+            .grid-media-categories {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <!-- SIDEBAR NAVIGASI -->
+    <!-- SIDEBAR / NAV HP -->
     <div class="sidebar">
         <div class="sidebar-top">
             <div class="brand">
                 <span>✨</span> DailyPlanner
             </div>
-            <button class="menu-btn active" onclick="switchPage('dashboard', this)">
-                <span>📊</span> Dashboard
-            </button>
-            <button class="menu-btn" onclick="switchPage('tugas', this)">
-                <span>📝</span> Tugas & Deadline
-            </button>
-            <button class="menu-btn" onclick="switchPage('jadwal', this)">
-                <span>📅</span> Jadwal Harian
-            </button>
-            <button class="menu-btn" onclick="switchPage('entertainment', this)">
-                <span>🎬</span> Jurnal Tontonan & Buku
-            </button>
+            <div class="menu-list">
+                <button class="menu-btn active" onclick="switchPage('dashboard', this)">
+                    <span>📊</span> Dashboard
+                </button>
+                <button class="menu-btn" onclick="switchPage('tugas', this)">
+                    <span>📝</span> Tugas & Deadline
+                </button>
+                <button class="menu-btn" onclick="switchPage('jadwal', this)">
+                    <span>📅</span> Jadwal Harian
+                </button>
+                <button class="menu-btn" onclick="switchPage('entertainment', this)">
+                    <span>🎬</span> Jurnal Tontonan & Buku
+                </button>
+            </div>
         </div>
 
-        <!-- KOTAK MOTIVASI DI BAWAH MENU -->
         <div class="quote-card">
             <p id="quote-text">"Satu langkah kecil hari ini adalah awal dari pencapaian besar besok."</p>
             <span id="quote-author">~ Semangat Ya! ✨</span>
@@ -319,7 +472,6 @@
 
     <!-- KONTEN UTAMA -->
     <div class="main-content">
-
         <!-- 1. DASHBOARD -->
         <div id="page-dashboard" class="page active">
             <div class="greeting-banner">
@@ -445,23 +597,28 @@
             </div>
         </div>
 
-        <!-- 4. MENU BARU: ENTERTAINMENT JOURNAL -->
+        <!-- 4. JURNAL TONTONAN & BUKU (BERBASIS CARD PER KATEGORI) -->
         <div id="page-entertainment" class="page">
-            <h1 style="font-size: 20px; font-weight: 800; margin-bottom: 18px;">🎬 Jurnal Tontonan & Buku Bacaan</h1>
+            <h1 style="font-size: 20px; font-weight: 800; margin-bottom: 18px;">🎬 Jurnal Tontonan & Bacaan</h1>
+            
             <div class="form-container">
                 <form id="form-media" onsubmit="addMedia(event)">
                     <div class="form-grid">
                         <div class="input-group">
-                            <label>Judul (Buku/Drakor/Anime/dll)</label>
+                            <label>Judul</label>
                             <input type="text" id="media-judul" placeholder="Contoh: Twenty Five Twenty One" required>
                         </div>
                         <div class="input-group">
                             <label>Kategori</label>
                             <select id="media-kategori" required>
-                                <option value="📖 Buku / Novel">📖 Buku / Novel</option>
-                                <option value="🇰🇷 Drakor / Variety Show">🇰🇷 Drakor / Variety Show</option>
-                                <option value="🇨🇳 Dracin / Show Cina">🇨🇳 Dracin / Show Cina</option>
-                                <option value="🇯🇵 Anime / Donghua">🇯🇵 Anime / Donghua</option>
+                                <option value="Buku">📖 Buku</option>
+                                <option value="Novel">📕 Novel</option>
+                                <option value="Drakor">🇰🇷 Drakor</option>
+                                <option value="Variety Show Korea">📺 Variety Show Korea</option>
+                                <option value="Dracin">🇨🇳 Dracin</option>
+                                <option value="Variety Show Cina">📺 Variety Show Cina</option>
+                                <option value="Anime">🇯🇵 Anime</option>
+                                <option value="Donghua">🇨🇳 Donghua</option>
                             </select>
                         </div>
                         <div class="input-group">
@@ -487,31 +644,30 @@
                 </form>
             </div>
 
-            <div class="table-card">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Judul</th>
-                            <th>Kategori</th>
-                            <th>Status</th>
-                            <th>Rating</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody id="media-list"></tbody>
-                </table>
-            </div>
+            <!-- CONTAINER CARD KATEGORI -->
+            <div class="grid-media-categories" id="media-cards-container"></div>
         </div>
-
     </div>
 
     <script>
-        // DATA STATE
-        let dataTugas = JSON.parse(localStorage.getItem('app_tugas_v2')) || [];
-        let dataJadwal = JSON.parse(localStorage.getItem('app_jadwal_v2')) || [];
-        let dataMedia = JSON.parse(localStorage.getItem('app_media_v2')) || [];
+        // DAFTAR KATEGORI SAMA PERSIS
+        const categoriesList = [
+            { id: 'Buku', name: '📖 Buku' },
+            { id: 'Novel', name: '📕 Novel' },
+            { id: 'Drakor', name: '🇰🇷 Drakor' },
+            { id: 'Variety Show Korea', name: '📺 Variety Show Korea' },
+            { id: 'Dracin', name: '🇨🇳 Dracin' },
+            { id: 'Variety Show Cina', name: '📺 Variety Show Cina' },
+            { id: 'Anime', name: '🇯🇵 Anime' },
+            { id: 'Donghua', name: '🇨🇳 Donghua' }
+        ];
 
-        // KATA MOTIVASI / QUOTES
+        // DATA STATE
+        let dataTugas = JSON.parse(localStorage.getItem('app_tugas_v3')) || [];
+        let dataJadwal = JSON.parse(localStorage.getItem('app_jadwal_v3')) || [];
+        let dataMedia = JSON.parse(localStorage.getItem('app_media_v3')) || [];
+
+        // QUOTES
         const quotes = [
             { text: "Lakukan yang terbaik hari ini, biarkan hasil tersenyum esok.", author: "~ Self Reminder ✨" },
             { text: "Istirahat kalau lelah, tapi jangan pernah menyerah ya!", author: "~ Support System 💖" },
@@ -526,7 +682,6 @@
             document.getElementById('quote-author').innerText = quotes[randomIndex].author;
         }
 
-        // NAVIGASI halaman
         function switchPage(pageId, btnElement) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
@@ -537,7 +692,7 @@
             renderAll();
         }
 
-        // FUNGSI TUGAS
+        // TUGAS
         function addTugas(e) {
             e.preventDefault();
             dataTugas.push({
@@ -551,7 +706,7 @@
             document.getElementById('form-tugas').reset();
         }
 
-        // FUNGSI JADWAL
+        // JADWAL
         function addJadwal(e) {
             e.preventDefault();
             dataJadwal.push({
@@ -565,7 +720,7 @@
             document.getElementById('form-jadwal').reset();
         }
 
-        // FUNGSI MEDIA / ENTERTAINMENT
+        // ENTERTAINMENT
         function addMedia(e) {
             e.preventDefault();
             dataMedia.push({
@@ -589,9 +744,9 @@
         function deleteMedia(id) { dataMedia = dataMedia.filter(m => m.id !== id); saveAndRender(); }
 
         function saveAndRender() {
-            localStorage.setItem('app_tugas_v2', JSON.stringify(dataTugas));
-            localStorage.setItem('app_jadwal_v2', JSON.stringify(dataJadwal));
-            localStorage.setItem('app_media_v2', JSON.stringify(dataMedia));
+            localStorage.setItem('app_tugas_v3', JSON.stringify(dataTugas));
+            localStorage.setItem('app_jadwal_v3', JSON.stringify(dataJadwal));
+            localStorage.setItem('app_media_v3', JSON.stringify(dataMedia));
             renderAll();
         }
 
@@ -599,7 +754,7 @@
             renderDashboard();
             renderTugas();
             renderJadwal();
-            renderMedia();
+            renderMediaCards();
         }
 
         function renderDashboard() {
@@ -677,22 +832,44 @@
             });
         }
 
-        function renderMedia() {
-            const tbody = document.getElementById('media-list');
-            tbody.innerHTML = '';
-            if (dataMedia.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#94a3b8; padding:20px;">Belum ada riwayat tontonan/bacaan. Yuk catat! 🎬📖</td></tr>';
-                return;
-            }
-            dataMedia.forEach(m => {
-                tbody.innerHTML += `
-                    <tr>
-                        <td><b>${m.judul}</b></td>
-                        <td>${m.kategori}</td>
-                        <td><span class="badge pending" style="background:#f3e8ff; color:#6b21a8;">${m.status}</span></td>
-                        <td>${m.rating}</td>
-                        <td><button class="btn-action btn-delete" onclick="deleteMedia(${m.id})">Hapus</button></td>
-                    </tr>`;
+        // RENDER CARD PER KATEGORI (JURNAL ENTERTAINMENT)
+        function renderMediaCards() {
+            const container = document.getElementById('media-cards-container');
+            container.innerHTML = '';
+
+            categoriesList.forEach(cat => {
+                const itemsInCat = dataMedia.filter(m => m.kategori === cat.id);
+
+                let itemsHTML = '';
+                if (itemsInCat.length === 0) {
+                    itemsHTML = '<div class="empty-category">Belum ada item</div>';
+                } else {
+                    itemsInCat.forEach(item => {
+                        itemsHTML += `
+                            <div class="media-item">
+                                <div class="media-item-info">
+                                    <span class="media-item-title">${item.judul}</span>
+                                    <div class="media-item-meta">
+                                        <span>${item.status}</span> • <span>${item.rating}</span>
+                                    </div>
+                                </div>
+                                <button class="btn-action btn-delete" onclick="deleteMedia(${item.id})">✕</button>
+                            </div>
+                        `;
+                    });
+                }
+
+                container.innerHTML += `
+                    <div class="media-category-card">
+                        <div class="category-title">
+                            <span>${cat.name}</span>
+                            <span style="font-size: 11px; background: #f3e8ff; color: #6b21a8; padding: 2px 8px; border-radius: 10px;">${itemsInCat.length}</span>
+                        </div>
+                        <div class="category-item-list">
+                            ${itemsHTML}
+                        </div>
+                    </div>
+                `;
             });
         }
 
