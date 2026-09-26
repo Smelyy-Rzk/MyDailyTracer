@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Soft & Aesthetic Planner ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* Warna latar belakang ultra soft pastel gradient */
+            background: linear-gradient(135deg, #f8f6ff 0%, #fff5f7 50%, #f0f7ff 100%);
+            color: #475569;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* SIDEBAR SOFT PASTEL */
+        .sidebar {
+            width: 280px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border-right: 1px solid rgba(226, 232, 240, 0.8);
+            padding: 28px 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar-top {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: 800;
+            color: #8b5cf6;
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .menu-btn {
+            background: transparent;
+            border: none;
+            color: #64748b;
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 13.5px;
+            font-weight: 700;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .menu-btn:hover {
+            background: #f1f5f9;
+            color: #7c3aed;
+        }
+
+        /* Tombol Aktif dengan Gradien Soft Lavender Pastel */
+        .menu-btn.active {
+            background: linear-gradient(135deg, #c4b5fd 0%, #f472b6 100%);
+            color: #ffffff;
+            box-shadow: 0 8px 16px -4px rgba(196, 181, 253, 0.5);
+        }
+
+        /* KOTAK QUOTES / KATA MOTIVASI */
+        .quote-card {
+            background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            padding: 16px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            margin-top: 15px;
+        }
+
+        .quote-card p {
+            font-size: 12px;
+            font-style: italic;
+            color: #6b21a8;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .quote-card span {
+            font-size: 10px;
+            font-weight: 700;
+            color: #9d174d;
+            display: block;
+        }
+
+        .btn-refresh-quote {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 8px;
+            color: #6b21a8;
+            font-weight: 700;
+        }
+
+        /* AREA KONTEN UTAMA */
+        .main-content {
+            flex: 1;
+            padding: 32px 36px;
+            overflow-y: auto;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* BANNER */
+        .greeting-banner {
+            background: linear-gradient(135deg, #ddd6fe 0%, #fbcfe8 100%);
+            color: #4c1d95;
+            padding: 24px 28px;
+            border-radius: 22px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 20px -5px rgba(221, 214, 254, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .greeting-banner h1 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .greeting-banner p {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        /* CARDS & STATS */
+        .grid-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .card-stat {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 20px;
+            border-radius: 18px;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .card-stat .icon { font-size: 22px; margin-bottom: 8px; }
+        .card-stat h3 { font-size: 12px; color: #94a3b8; font-weight: 700; }
+        .card-stat .number { font-size: 28px; font-weight: 800; color: #334155; }
+
+        /* FORM STYLES */
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 22px;
+            border-radius: 18px;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            margin-bottom: 24px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748b;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 13px;
+            outline: none;
+            background: #fafafa;
+            transition: all 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #a78bfa;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.15);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 6px 12px rgba(167, 139, 250, 0.3);
+        }
+
+        .btn-submit:hover { opacity: 0.92; transform: translateY(-1px); }
+
+        /* TABLES & LISTS */
+        .table-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 18px;
+            border: 1px solid #f1f5f9;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .data-table { width: 100%; border-collapse: collapse; }
+        .data-table th, .data-table td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid #f8fafc;
+            font-size: 13px;
+        }
+        .data-table th { background: #fafafa; color: #64748b; font-weight: 700; }
+
+        /* BADGES */
+        .badge {
+            padding: 4px 10px;
+            border-radius: 14px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .badge.pending { background: #fef3c7; color: #d97706; }
+        .badge.completed { background: #dcfce7; color: #16a34a; }
+        .badge.overdue { background: #ffe4e6; color: #e11d48; }
+
+        .btn-action {
+            padding: 6px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 4px;
+        }
+
+        .btn-done { background: #dcfce7; color: #16a34a; }
+        .btn-delete { background: #ffe4e6; color: #e11d48; }
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR NAVIGASI -->
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <div class="brand">
+                <span>✨</span> DailyPlanner
+            </div>
+            <button class="menu-btn active" onclick="switchPage('dashboard', this)">
+                <span>📊</span> Dashboard
+            </button>
+            <button class="menu-btn" onclick="switchPage('tugas', this)">
+                <span>📝</span> Tugas & Deadline
+            </button>
+            <button class="menu-btn" onclick="switchPage('jadwal', this)">
+                <span>📅</span> Jadwal Harian
+            </button>
+            <button class="menu-btn" onclick="switchPage('entertainment', this)">
+                <span>🎬</span> Jurnal Tontonan & Buku
+            </button>
+        </div>
+
+        <!-- KOTAK MOTIVASI DI BAWAH MENU -->
+        <div class="quote-card">
+            <p id="quote-text">"Satu langkah kecil hari ini adalah awal dari pencapaian besar besok."</p>
+            <span id="quote-author">~ Semangat Ya! ✨</span>
+            <button class="btn-refresh-quote" onclick="generateQuote()">🔄 Ganti Kata</button>
+        </div>
+    </div>
+
+    <!-- KONTEN UTAMA -->
+    <div class="main-content">
+
+        <!-- 1. DASHBOARD -->
+        <div id="page-dashboard" class="page active">
+            <div class="greeting-banner">
+                <div>
+                    <h1>Halo, Semangat Hari Ini! 🌸</h1>
+                    <p>Atur aktivitasmu dengan tenang dan nikmati setiap prosesnya.</p>
+                </div>
+                <div style="font-size: 36px;">🧁</div>
+            </div>
+
+            <div class="grid-stats">
+                <div class="card-stat">
+                    <div class="icon">📚</div>
+                    <h3>Total Tugas</h3>
+                    <div class="number" id="stat-total">0</div>
+                </div>
+                <div class="card-stat">
+                    <div class="icon">🎉</div>
+                    <h3>Selesai</h3>
+                    <div class="number" id="stat-completed" style="color: #16a34a;">0</div>
+                </div>
+                <div class="card-stat">
+                    <div class="icon">⏳</div>
+                    <h3>Belum Selesai</h3>
+                    <div class="number" id="stat-pending" style="color: #d97706;">0</div>
+                </div>
+                <div class="card-stat">
+                    <div class="icon">⚠️</div>
+                    <h3>Terlambat</h3>
+                    <div class="number" id="stat-overdue" style="color: #e11d48;">0</div>
+                </div>
+            </div>
+
+            <h2 style="font-size: 16px; font-weight: 800; margin-bottom: 14px;">⏰ Agenda Terdekat</h2>
+            <div class="table-card">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Jam</th>
+                            <th>Kegiatan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dashboard-agenda-list"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 2. TUGAS & DEADLINE -->
+        <div id="page-tugas" class="page">
+            <h1 style="font-size: 20px; font-weight: 800; margin-bottom: 18px;">📝 Kelola Tugas & Deadline</h1>
+            <div class="form-container">
+                <form id="form-tugas" onsubmit="addTugas(event)">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>Nama Tugas</label>
+                            <input type="text" id="tugas-nama" placeholder="Contoh: Tugas Makalah" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Tanggal Diberikan</label>
+                            <input type="date" id="tugas-tgl-diberikan" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Deadline</label>
+                            <input type="date" id="tugas-deadline" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">+ Tambah Tugas</button>
+                </form>
+            </div>
+
+            <div class="table-card">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tugas</th>
+                            <th>Tgl Diberikan</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tugas-list"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 3. JADWAL HARIAN -->
+        <div id="page-jadwal" class="page">
+            <h1 style="font-size: 20px; font-weight: 800; margin-bottom: 18px;">📅 Pengaturan Jadwal Harian</h1>
+            <div class="form-container">
+                <form id="form-jadwal" onsubmit="addJadwal(event)">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>Nama Kegiatan</label>
+                            <input type="text" id="jadwal-nama" placeholder="Contoh: Rapat Kerja" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Tanggal</label>
+                            <input type="date" id="jadwal-tgl" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Jam</label>
+                            <input type="time" id="jadwal-jam" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">+ Tambah Agenda</button>
+                </form>
+            </div>
+
+            <div class="table-card">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Jam</th>
+                            <th>Kegiatan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jadwal-list"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 4. MENU BARU: ENTERTAINMENT JOURNAL -->
+        <div id="page-entertainment" class="page">
+            <h1 style="font-size: 20px; font-weight: 800; margin-bottom: 18px;">🎬 Jurnal Tontonan & Buku Bacaan</h1>
+            <div class="form-container">
+                <form id="form-media" onsubmit="addMedia(event)">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>Judul (Buku/Drakor/Anime/dll)</label>
+                            <input type="text" id="media-judul" placeholder="Contoh: Twenty Five Twenty One" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Kategori</label>
+                            <select id="media-kategori" required>
+                                <option value="📖 Buku / Novel">📖 Buku / Novel</option>
+                                <option value="🇰🇷 Drakor / Variety Show">🇰🇷 Drakor / Variety Show</option>
+                                <option value="🇨🇳 Dracin / Show Cina">🇨🇳 Dracin / Show Cina</option>
+                                <option value="🇯🇵 Anime / Donghua">🇯🇵 Anime / Donghua</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Status</label>
+                            <select id="media-status" required>
+                                <option value="Sedang Ditonton/Dibaca">🔄 Sedang Ditonton/Dibaca</option>
+                                <option value="Selesai">✅ Selesai</option>
+                                <option value="Plan to Watch/Read">📌 Plan to Watch/Read</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Rating (1 - 5 ⭐)</label>
+                            <select id="media-rating">
+                                <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ (5/5)</option>
+                                <option value="⭐⭐⭐⭐">⭐⭐⭐⭐ (4/5)</option>
+                                <option value="⭐⭐⭐">⭐⭐⭐ (3/5)</option>
+                                <option value="⭐⭐">⭐⭐ (2/5)</option>
+                                <option value="⭐">⭐ (1/5)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">+ Catat ke Jurnal</button>
+                </form>
+            </div>
+
+            <div class="table-card">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Judul</th>
+                            <th>Kategori</th>
+                            <th>Status</th>
+                            <th>Rating</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="media-list"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // DATA STATE
+        let dataTugas = JSON.parse(localStorage.getItem('app_tugas_v2')) || [];
+        let dataJadwal = JSON.parse(localStorage.getItem('app_jadwal_v2')) || [];
+        let dataMedia = JSON.parse(localStorage.getItem('app_media_v2')) || [];
+
+        // KATA MOTIVASI / QUOTES
+        const quotes = [
+            { text: "Lakukan yang terbaik hari ini, biarkan hasil tersenyum esok.", author: "~ Self Reminder ✨" },
+            { text: "Istirahat kalau lelah, tapi jangan pernah menyerah ya!", author: "~ Support System 💖" },
+            { text: "Satu bab buku, satu episode drakor, dan tugas selesai. Perfect balance!", author: "~ Daily Balance 🌸" },
+            { text: "Fokus pada proses kecil, hal besar akan menyusul.", author: "~ Motivation 🌿" },
+            { text: "Jangan lupa bahagia di tengah kesibukanmu hari ini!", author: "~ Stay Happy 🧁" }
+        ];
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote-text').innerText = `"${quotes[randomIndex].text}"`;
+            document.getElementById('quote-author').innerText = quotes[randomIndex].author;
+        }
+
+        // NAVIGASI halaman
+        function switchPage(pageId, btnElement) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
+
+            document.getElementById(`page-${pageId}`).classList.add('active');
+            btnElement.classList.add('active');
+
+            renderAll();
+        }
+
+        // FUNGSI TUGAS
+        function addTugas(e) {
+            e.preventDefault();
+            dataTugas.push({
+                id: Date.now(),
+                nama: document.getElementById('tugas-nama').value,
+                tglDiberikan: document.getElementById('tugas-tgl-diberikan').value,
+                deadline: document.getElementById('tugas-deadline').value,
+                isCompleted: false
+            });
+            saveAndRender();
+            document.getElementById('form-tugas').reset();
+        }
+
+        // FUNGSI JADWAL
+        function addJadwal(e) {
+            e.preventDefault();
+            dataJadwal.push({
+                id: Date.now(),
+                nama: document.getElementById('jadwal-nama').value,
+                tgl: document.getElementById('jadwal-tgl').value,
+                jam: document.getElementById('jadwal-jam').value
+            });
+            dataJadwal.sort((a, b) => new Date(`${a.tgl}T${a.jam}`) - new Date(`${b.tgl}T${b.jam}`));
+            saveAndRender();
+            document.getElementById('form-jadwal').reset();
+        }
+
+        // FUNGSI MEDIA / ENTERTAINMENT
+        function addMedia(e) {
+            e.preventDefault();
+            dataMedia.push({
+                id: Date.now(),
+                judul: document.getElementById('media-judul').value,
+                kategori: document.getElementById('media-kategori').value,
+                status: document.getElementById('media-status').value,
+                rating: document.getElementById('media-rating').value
+            });
+            saveAndRender();
+            document.getElementById('form-media').reset();
+        }
+
+        function toggleTugas(id) {
+            dataTugas = dataTugas.map(t => t.id === id ? { ...t, isCompleted: !t.isCompleted } : t);
+            saveAndRender();
+        }
+
+        function deleteTugas(id) { dataTugas = dataTugas.filter(t => t.id !== id); saveAndRender(); }
+        function deleteJadwal(id) { dataJadwal = dataJadwal.filter(j => j.id !== id); saveAndRender(); }
+        function deleteMedia(id) { dataMedia = dataMedia.filter(m => m.id !== id); saveAndRender(); }
+
+        function saveAndRender() {
+            localStorage.setItem('app_tugas_v2', JSON.stringify(dataTugas));
+            localStorage.setItem('app_jadwal_v2', JSON.stringify(dataJadwal));
+            localStorage.setItem('app_media_v2', JSON.stringify(dataMedia));
+            renderAll();
+        }
+
+        function renderAll() {
+            renderDashboard();
+            renderTugas();
+            renderJadwal();
+            renderMedia();
+        }
+
+        function renderDashboard() {
+            const todayStr = new Date().toISOString().split('T')[0];
+            let completed = 0, pending = 0, overdue = 0;
+
+            dataTugas.forEach(t => {
+                if (t.isCompleted) completed++;
+                else if (t.deadline < todayStr) overdue++;
+                else pending++;
+            });
+
+            document.getElementById('stat-total').innerText = dataTugas.length;
+            document.getElementById('stat-completed').innerText = completed;
+            document.getElementById('stat-pending').innerText = pending;
+            document.getElementById('stat-overdue').innerText = overdue;
+
+            const agendaTbody = document.getElementById('dashboard-agenda-list');
+            agendaTbody.innerHTML = '';
+            
+            const upcoming = dataJadwal.slice(0, 5);
+            if (upcoming.length === 0) {
+                agendaTbody.innerHTML = '<tr><td colspan="3" style="text-align:center; color:#94a3b8; padding:20px;">Belum ada jadwal. Santai dulu! ✨</td></tr>';
+            } else {
+                upcoming.forEach(j => {
+                    agendaTbody.innerHTML += `<tr><td>${formatDate(j.tgl)}</td><td><b style="color:#8b5cf6;">${j.jam}</b></td><td><b>${j.nama}</b></td></tr>`;
+                });
+            }
+        }
+
+        function renderTugas() {
+            const tbody = document.getElementById('tugas-list');
+            tbody.innerHTML = '';
+            const todayStr = new Date().toISOString().split('T')[0];
+
+            if (dataTugas.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#94a3b8; padding:20px;">Tugas kosong! 🎉</td></tr>';
+                return;
+            }
+
+            dataTugas.forEach(t => {
+                let badge = '<span class="badge pending">Pending</span>';
+                if (t.isCompleted) badge = '<span class="badge completed">Selesai ✨</span>';
+                else if (t.deadline < todayStr) badge = '<span class="badge overdue">Terlambat ⚠️</span>';
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td style="${t.isCompleted ? 'text-decoration: line-through; color: #94a3b8;' : 'font-weight:700;'}">${t.nama}</td>
+                        <td>${formatDate(t.tglDiberikan)}</td>
+                        <td>${formatDate(t.deadline)}</td>
+                        <td>${badge}</td>
+                        <td>
+                            <button class="btn-action btn-done" onclick="toggleTugas(${t.id})">${t.isCompleted ? 'Batal' : '✓ Selesai'}</button>
+                            <button class="btn-action btn-delete" onclick="deleteTugas(${t.id})">Hapus</button>
+                        </td>
+                    </tr>`;
+            });
+        }
+
+        function renderJadwal() {
+            const tbody = document.getElementById('jadwal-list');
+            tbody.innerHTML = '';
+            if (dataJadwal.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#94a3b8; padding:20px;">Belum ada agenda. 🌸</td></tr>';
+                return;
+            }
+            dataJadwal.forEach(j => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${formatDate(j.tgl)}</td>
+                        <td><b style="color:#8b5cf6;">${j.jam}</b></td>
+                        <td><b>${j.nama}</b></td>
+                        <td><button class="btn-action btn-delete" onclick="deleteJadwal(${j.id})">Hapus</button></td>
+                    </tr>`;
+            });
+        }
+
+        function renderMedia() {
+            const tbody = document.getElementById('media-list');
+            tbody.innerHTML = '';
+            if (dataMedia.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#94a3b8; padding:20px;">Belum ada riwayat tontonan/bacaan. Yuk catat! 🎬📖</td></tr>';
+                return;
+            }
+            dataMedia.forEach(m => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td><b>${m.judul}</b></td>
+                        <td>${m.kategori}</td>
+                        <td><span class="badge pending" style="background:#f3e8ff; color:#6b21a8;">${m.status}</span></td>
+                        <td>${m.rating}</td>
+                        <td><button class="btn-action btn-delete" onclick="deleteMedia(${m.id})">Hapus</button></td>
+                    </tr>`;
+            });
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '-';
+            return new Date(dateStr).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+
+        renderAll();
+    </script>
+</body>
+</html>
