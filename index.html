@@ -21,7 +21,7 @@
             overflow: hidden;
         }
 
-        /* SIDEBAR / DESKTOP NAV */
+        /* SIDEBAR SOFT PASTEL */
         .sidebar {
             width: 280px;
             background: rgba(255, 255, 255, 0.85);
@@ -31,7 +31,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            flex-shrink: 0;
         }
 
         .sidebar-top {
@@ -52,12 +51,6 @@
             gap: 8px;
         }
 
-        .menu-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
         .menu-btn {
             background: transparent;
             border: none;
@@ -72,7 +65,6 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            white-space: nowrap;
         }
 
         .menu-btn:hover {
@@ -86,7 +78,6 @@
             box-shadow: 0 8px 16px -4px rgba(196, 181, 253, 0.5);
         }
 
-        /* MOTIVASI QUOTE */
         .quote-card {
             background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%);
             border: 1px solid rgba(255, 255, 255, 0.9);
@@ -124,7 +115,7 @@
             font-weight: 700;
         }
 
-        /* MAIN CONTENT */
+        /* AREA KONTEN UTAMA */
         .main-content {
             flex: 1;
             padding: 32px 36px;
@@ -145,7 +136,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* BANNER */
+        /* BANNER & STATS */
         .greeting-banner {
             background: linear-gradient(135deg, #ddd6fe 0%, #fbcfe8 100%);
             color: #4c1d95;
@@ -158,18 +149,9 @@
             align-items: center;
         }
 
-        .greeting-banner h1 {
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 4px;
-        }
+        .greeting-banner h1 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+        .greeting-banner p { font-size: 13px; opacity: 0.85; }
 
-        .greeting-banner p {
-            font-size: 13px;
-            opacity: 0.85;
-        }
-
-        /* CARDS & STATS */
         .grid-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -248,16 +230,16 @@
 
         .btn-submit:hover { opacity: 0.92; transform: translateY(-1px); }
 
-        /* TABLES */
+        /* TABLES & LISTS */
         .table-card {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 18px;
             border: 1px solid #f1f5f9;
-            overflow-x: auto;
+            overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
-        .data-table { width: 100%; border-collapse: collapse; min-width: 500px; }
+        .data-table { width: 100%; border-collapse: collapse; }
         .data-table th, .data-table td {
             padding: 14px 18px;
             text-align: left;
@@ -266,81 +248,6 @@
         }
         .data-table th { background: #fafafa; color: #64748b; font-weight: 700; }
 
-        /* GRID CARDS ENTERTAINMENT */
-        .grid-media-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 18px;
-        }
-
-        .media-category-card {
-            background: rgba(255, 255, 255, 0.92);
-            border-radius: 18px;
-            border: 1px solid #f1f5f9;
-            padding: 18px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .category-title {
-            font-size: 14px;
-            font-weight: 800;
-            color: #6b21a8;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #f3e8ff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .category-item-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            flex: 1;
-        }
-
-        .media-item {
-            background: #fafafa;
-            border: 1px solid #f1f5f9;
-            padding: 10px 12px;
-            border-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .media-item-info {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-        }
-
-        .media-item-title {
-            font-size: 13px;
-            font-weight: 700;
-            color: #334155;
-        }
-
-        .media-item-meta {
-            font-size: 10px;
-            color: #94a3b8;
-            display: flex;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .empty-category {
-            font-size: 12px;
-            color: #cbd5e1;
-            text-align: center;
-            padding: 16px 0;
-            font-style: italic;
-        }
-
-        /* BADGES */
         .badge {
             padding: 4px 10px;
             border-radius: 14px;
@@ -366,101 +273,133 @@
         .btn-done { background: #dcfce7; color: #16a34a; }
         .btn-delete { background: #ffe4e6; color: #e11d48; }
 
-        /* RESPONSIVE HP */
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-                height: 100vh;
-            }
+        /* STYLE GRID UNTUK JURNAL TONTONAN & BUKU SESUAI GAMBAR */
+        .media-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
 
-            .sidebar {
-                width: 100%;
-                border-right: none;
-                border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-                padding: 12px 16px;
-            }
+        .media-category-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(241, 245, 249, 0.9);
+            border-radius: 18px;
+            padding: 16px;
+            min-height: 250px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+            display: flex;
+            flex-direction: column;
+        }
 
-            .brand {
-                font-size: 16px;
-                margin-bottom: 8px;
-            }
+        .category-header {
+            font-size: 13px;
+            font-weight: 800;
+            color: #7c3aed;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 8px;
+        }
 
-            .sidebar-top {
-                gap: 6px;
-            }
+        .count-badge {
+            background: #f3e8ff;
+            color: #7c3aed;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
 
-            .menu-list {
-                flex-direction: row;
-                overflow-x: auto;
-                padding-bottom: 4px;
-            }
+        .media-items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+        }
 
-            .menu-btn {
-                padding: 8px 12px;
-                font-size: 12px;
-                border-radius: 10px;
-                flex-shrink: 0;
-            }
+        .media-item-box {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 10px 14px;
+            border: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.015);
+        }
 
-            .quote-card {
-                display: none;
-            }
+        .media-item-info h4 {
+            font-size: 12px;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 3px;
+        }
 
-            .main-content {
-                padding: 16px;
-            }
+        /* DETAIL STATUS DAN RATING PERTAMA KALI KEMBALI DI SINI */
+        .media-item-meta {
+            font-size: 10.5px;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-            .greeting-banner {
-                padding: 16px 20px;
-                border-radius: 16px;
-                margin-bottom: 16px;
-            }
+        .media-item-meta span.stars {
+            color: #fbbf24;
+            font-size: 9px;
+        }
 
-            .greeting-banner h1 {
-                font-size: 18px;
-            }
+        .btn-delete-mini {
+            background: #ffe4e6;
+            border: none;
+            color: #f43f5e;
+            font-size: 11px;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            transition: all 0.2s;
+        }
 
-            .grid-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-                margin-bottom: 20px;
-            }
+        .btn-delete-mini:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
 
-            .card-stat {
-                padding: 14px;
-            }
-
-            .card-stat .number {
-                font-size: 22px;
-            }
-
-            .grid-media-categories {
-                grid-template-columns: 1fr;
-            }
+        .empty-text {
+            font-size: 11px;
+            color: #cbd5e1;
+            text-align: center;
+            margin: auto 0;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <!-- SIDEBAR / NAV HP -->
+    <!-- SIDEBAR NAVIGASI -->
     <div class="sidebar">
         <div class="sidebar-top">
             <div class="brand">
                 <span>✨</span> DailyPlanner
             </div>
-            <div class="menu-list">
-                <button class="menu-btn active" onclick="switchPage('dashboard', this)">
-                    <span>📊</span> Dashboard
-                </button>
-                <button class="menu-btn" onclick="switchPage('tugas', this)">
-                    <span>📝</span> Tugas & Deadline
-                </button>
-                <button class="menu-btn" onclick="switchPage('jadwal', this)">
-                    <span>📅</span> Jadwal Harian
-                </button>
-                <button class="menu-btn" onclick="switchPage('entertainment', this)">
-                    <span>🎬</span> Jurnal Tontonan & Buku
-                </button>
-            </div>
+            <button class="menu-btn active" onclick="switchPage('dashboard', this)">
+                <span>📊</span> Dashboard
+            </button>
+            <button class="menu-btn" onclick="switchPage('tugas', this)">
+                <span>📝</span> Tugas & Deadline
+            </button>
+            <button class="menu-btn" onclick="switchPage('jadwal', this)">
+                <span>📅</span> Jadwal Harian
+            </button>
+            <button class="menu-btn" onclick="switchPage('entertainment', this)">
+                <span>🎬</span> Jurnal Tontonan & Buku
+            </button>
         </div>
 
         <div class="quote-card">
@@ -472,6 +411,7 @@
 
     <!-- KONTEN UTAMA -->
     <div class="main-content">
+
         <!-- 1. DASHBOARD -->
         <div id="page-dashboard" class="page active">
             <div class="greeting-banner">
@@ -597,7 +537,7 @@
             </div>
         </div>
 
-        <!-- 4. JURNAL TONTONAN & BUKU (BERBASIS CARD PER KATEGORI) -->
+        <!-- 4. JURNAL TONTONAN & BUKU -->
         <div id="page-entertainment" class="page">
             <h1 style="font-size: 20px; font-weight: 800; margin-bottom: 18px;">🎬 Jurnal Tontonan & Bacaan</h1>
             
@@ -605,7 +545,7 @@
                 <form id="form-media" onsubmit="addMedia(event)">
                     <div class="form-grid">
                         <div class="input-group">
-                            <label>Judul</label>
+                            <label>Judul (Buku/Drakor/Anime/dll)</label>
                             <input type="text" id="media-judul" placeholder="Contoh: Twenty Five Twenty One" required>
                         </div>
                         <div class="input-group">
@@ -616,9 +556,9 @@
                                 <option value="Drakor">🇰🇷 Drakor</option>
                                 <option value="Variety Show Korea">📺 Variety Show Korea</option>
                                 <option value="Dracin">🇨🇳 Dracin</option>
-                                <option value="Variety Show Cina">📺 Variety Show Cina</option>
+                                <option value="Variety Show Cina">🎬 Variety Show Cina</option>
                                 <option value="Anime">🇯🇵 Anime</option>
-                                <option value="Donghua">🇨🇳 Donghua</option>
+                                <option value="Donghua">🐉 Donghua</option>
                             </select>
                         </div>
                         <div class="input-group">
@@ -644,31 +584,76 @@
                 </form>
             </div>
 
-            <!-- CONTAINER CARD KATEGORI -->
-            <div class="grid-media-categories" id="media-cards-container"></div>
+            <!-- TAMPILAN CARD GRID KATEGORI UTAMA -->
+            <div class="media-grid-container" id="main-media-grid"></div>
+
+            <!-- SECTION KHUSUS PLAN TO WATCH / READ -->
+            <h2 style="font-size: 16px; font-weight: 800; margin-bottom: 14px; color: #6b21a8;">📌 Plan to Watch / Read (Rencana Nonton & Baca)</h2>
+            <div class="media-grid-container" id="plan-media-grid"></div>
+
         </div>
     </div>
 
-    <!-- LOGIKA APLIKASI UTAMA -->
-    <script>
-        // DAFTAR KATEGORI
-        const categoriesList = [
-            { id: 'Buku', name: '📖 Buku' },
-            { id: 'Novel', name: '📕 Novel' },
-            { id: 'Drakor', name: '🇰🇷 Drakor' },
-            { id: 'Variety Show Korea', name: '📺 Variety Show Korea' },
-            { id: 'Dracin', name: '🇨🇳 Dracin' },
-            { id: 'Variety Show Cina', name: '📺 Variety Show Cina' },
-            { id: 'Anime', name: '🇯🇵 Anime' },
-            { id: 'Donghua', name: '🇨🇳 Donghua' }
-        ];
+    <!-- SCRIPT FIREBASE COMPAT SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 
+    <script>
         // DATA STATE
         let dataTugas = JSON.parse(localStorage.getItem('app_tugas_v3')) || [];
         let dataJadwal = JSON.parse(localStorage.getItem('app_jadwal_v3')) || [];
         let dataMedia = JSON.parse(localStorage.getItem('app_media_v3')) || [];
 
-        // QUOTES
+        // KONFIGURASI FIREBASE
+        const firebaseConfig = {
+            apiKey: "AIzaSyAHY-Tt1-dCO6ZlVD-3H-a5_jtEPsNxwLE",
+            authDomain: "mydailytracer-6623.firebaseapp.com",
+            databaseURL: "https://mydailytracer-6623-default-rtdb.firebaseio.com",
+            projectId: "mydailytracer-6623",
+            storageBucket: "mydailytracer-6623.firebasestorage.app",
+            messagingSenderId: "161599558918",
+            appId: "1:161599558918:web:b7a9f9ce7f78edfd48fa87",
+            measurementId: "G-6T2VC2NNCT"
+        };
+
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const db = firebase.database();
+        const dbRef = db.ref('plannerData');
+
+        // Terima Data dari Firebase Realtime
+        dbRef.on('value', (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                dataTugas = data.tugas || [];
+                dataJadwal = data.jadwal || [];
+                dataMedia = data.media || [];
+            } else {
+                dbRef.set({
+                    tugas: dataTugas || [],
+                    jadwal: dataJadwal || [],
+                    media: dataMedia || []
+                });
+            }
+            renderAll();
+        }, (error) => {
+            console.error("Gagal terhubung ke Firebase:", error);
+        });
+
+        // Menyimpan Data
+        window.saveAndRender = function () {
+            dbRef.set({
+                tugas: dataTugas,
+                jadwal: dataJadwal,
+                media: dataMedia
+            });
+            localStorage.setItem('app_tugas_v3', JSON.stringify(dataTugas));
+            localStorage.setItem('app_jadwal_v3', JSON.stringify(dataJadwal));
+            localStorage.setItem('app_media_v3', JSON.stringify(dataMedia));
+            renderAll();
+        };
+
         const quotes = [
             { text: "Lakukan yang terbaik hari ini, biarkan hasil tersenyum esok.", author: "~ Self Reminder ✨" },
             { text: "Istirahat kalau lelah, tapi jangan pernah menyerah ya!", author: "~ Support System 💖" },
@@ -693,7 +678,6 @@
             renderAll();
         }
 
-        // TUGAS
         function addTugas(e) {
             e.preventDefault();
             dataTugas.push({
@@ -707,7 +691,6 @@
             document.getElementById('form-tugas').reset();
         }
 
-        // JADWAL
         function addJadwal(e) {
             e.preventDefault();
             dataJadwal.push({
@@ -721,7 +704,6 @@
             document.getElementById('form-jadwal').reset();
         }
 
-        // ENTERTAINMENT
         function addMedia(e) {
             e.preventDefault();
             dataMedia.push({
@@ -748,7 +730,7 @@
             renderDashboard();
             renderTugas();
             renderJadwal();
-            renderMediaCards();
+            renderMedia();
         }
 
         function renderDashboard() {
@@ -826,41 +808,92 @@
             });
         }
 
-        function renderMediaCards() {
-            const container = document.getElementById('media-cards-container');
-            container.innerHTML = '';
+        function renderMedia() {
+            const categories = [
+                { id: 'Buku', title: '📖 Buku' },
+                { id: 'Novel', title: '📕 Novel' },
+                { id: 'Drakor', title: '🇰🇷 Drakor' },
+                { id: 'Variety Show Korea', title: '📺 Variety Show Korea' },
+                { id: 'Dracin', title: '🇨🇳 Dracin' },
+                { id: 'Variety Show Cina', title: '🎬 Variety Show Cina' },
+                { id: 'Anime', title: '🇯🇵 Anime' },
+                { id: 'Donghua', title: '🐉 Donghua' }
+            ];
 
-            categoriesList.forEach(cat => {
-                const itemsInCat = dataMedia.filter(m => m.kategori === cat.id);
+            // 1. RENDER KATEGORI UTAMA (Sedang Ditonton/Dibaca / Selesai)
+            const mainGrid = document.getElementById('main-media-grid');
+            mainGrid.innerHTML = '';
 
+            categories.forEach(cat => {
+                const items = dataMedia.filter(m => m.kategori === cat.id && m.status !== 'Plan to Watch/Read');
+                
                 let itemsHTML = '';
-                if (itemsInCat.length === 0) {
-                    itemsHTML = '<div class="empty-category">Belum ada item</div>';
+                if (items.length === 0) {
+                    itemsHTML = `<div class="empty-text">Belum ada item</div>`;
                 } else {
-                    itemsInCat.forEach(item => {
+                    items.forEach(m => {
                         itemsHTML += `
-                            <div class="media-item">
+                            <div class="media-item-box">
                                 <div class="media-item-info">
-                                    <span class="media-item-title">${item.judul}</span>
+                                    <h4>${m.judul}</h4>
                                     <div class="media-item-meta">
-                                        <span>${item.status}</span> • <span>${item.rating}</span>
+                                        <span>${m.status}</span>
+                                        <span>•</span>
+                                        <span class="stars">${m.rating}</span>
                                     </div>
                                 </div>
-                                <button class="btn-action btn-delete" onclick="deleteMedia(${item.id})">✕</button>
+                                <button class="btn-delete-mini" onclick="deleteMedia(${m.id})">✕</button>
                             </div>
                         `;
                     });
                 }
 
-                container.innerHTML += `
+                mainGrid.innerHTML += `
                     <div class="media-category-card">
-                        <div class="category-title">
-                            <span>${cat.name}</span>
-                            <span style="font-size: 11px; background: #f3e8ff; color: #6b21a8; padding: 2px 8px; border-radius: 10px;">${itemsInCat.length}</span>
+                        <div class="category-header">
+                            <span>${cat.title}</span>
+                            <span class="count-badge">${items.length}</span>
                         </div>
-                        <div class="category-item-list">
-                            ${itemsHTML}
+                        <div class="media-items-list">${itemsHTML}</div>
+                    </div>
+                `;
+            });
+
+            // 2. RENDER CARD KHUSUS PLAN TO WATCH / READ
+            const planGrid = document.getElementById('plan-media-grid');
+            planGrid.innerHTML = '';
+
+            categories.forEach(cat => {
+                const planItems = dataMedia.filter(m => m.kategori === cat.id && m.status === 'Plan to Watch/Read');
+                
+                let planItemsHTML = '';
+                if (planItems.length === 0) {
+                    planItemsHTML = `<div class="empty-text">Belum ada rencana</div>`;
+                } else {
+                    planItems.forEach(m => {
+                        planItemsHTML += `
+                            <div class="media-item-box" style="border-left: 3px solid #f59e0b;">
+                                <div class="media-item-info">
+                                    <h4>${m.judul}</h4>
+                                    <div class="media-item-meta">
+                                        <span>Plan</span>
+                                        <span>•</span>
+                                        <span class="stars">${m.rating}</span>
+                                    </div>
+                                </div>
+                                <button class="btn-delete-mini" onclick="deleteMedia(${m.id})">✕</button>
+                            </div>
+                        `;
+                    });
+                }
+
+                planGrid.innerHTML += `
+                    <div class="media-category-card" style="background: rgba(254, 243, 199, 0.3);">
+                        <div class="category-header">
+                            <span>${cat.title}</span>
+                            <span class="count-badge">${planItems.length}</span>
                         </div>
+                        <div class="media-items-list">${planItemsHTML}</div>
                     </div>
                 `;
             });
@@ -870,64 +903,8 @@
             if (!dateStr) return '-';
             return new Date(dateStr).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
         }
+
+        renderAll();
     </script>
-
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
-
-    <script>
-    // KONFIGURASI FIREBASE KAMU
-    const firebaseConfig = {
-        apiKey: "AIzaSyAHY-Tt1-dCO6ZlVD-3H-a5_jtEPsNxwLE",
-        authDomain: "mydailytracer-6623.firebaseapp.com",
-        databaseURL: "https://mydailytracer-6623-default-rtdb.firebaseio.com",
-        projectId: "mydailytracer-6623",
-        storageBucket: "mydailytracer-6623.firebasestorage.app",
-        messagingSenderId: "161599558918",
-        appId: "1:161599558918:web:b7a9f9ce7f78edf d48fa87",
-        measurementId: "G-6T2VC2NNCT"
-    };
-
-    // Inisialisasi Firebase
-    if (!firebase.apps.length) {
-        firebase.initializeApp(firebaseConfig);
-    }
-    const db = firebase.database();
-    const dbRef = db.ref('plannerData');
-
-    // Terima Perubahan Data dari Firebase secara Realtime
-    dbRef.on('value', (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-            dataTugas = data.tugas || [];
-            dataJadwal = data.jadwal || [];
-            dataMedia = data.media || [];
-        } else {
-            dbRef.set({
-                tugas: dataTugas || [],
-                jadwal: dataJadwal || [],
-                media: dataMedia || []
-            });
-        }
-        renderAll();
-    }, (error) => {
-        console.error("Gagal terhubung ke Firebase:", error);
-    });
-
-    // Menyimpan Data ke Firebase dan LocalStorage Saat Ada Perubahan
-    window.saveAndRender = function () {
-        dbRef.set({
-            tugas: dataTugas,
-            jadwal: dataJadwal,
-            media: dataMedia
-        });
-        localStorage.setItem('app_tugas_v3', JSON.stringify(dataTugas));
-        localStorage.setItem('app_jadwal_v3', JSON.stringify(dataJadwal));
-        localStorage.setItem('app_media_v3', JSON.stringify(dataMedia));
-        renderAll();
-    };
-
-    renderAll();
-</script>
 </body>
 </html>
