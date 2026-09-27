@@ -21,7 +21,7 @@
             overflow: hidden;
         }
 
-        /* SIDEBAR SOFT PASTEL */
+        /* SIDEBAR (UNTUK TAMPILAN DESKTOP / LAPTOP) */
         .sidebar {
             width: 280px;
             background: rgba(255, 255, 255, 0.85);
@@ -31,6 +31,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            flex-shrink: 0;
+            z-index: 100;
         }
 
         .sidebar-top {
@@ -120,6 +122,7 @@
             flex: 1;
             padding: 32px 36px;
             overflow-y: auto;
+            width: 100%;
         }
 
         .page {
@@ -154,7 +157,7 @@
 
         .grid-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 16px;
             margin-bottom: 28px;
         }
@@ -235,11 +238,11 @@
             background: rgba(255, 255, 255, 0.9);
             border-radius: 18px;
             border: 1px solid #f1f5f9;
-            overflow: hidden;
+            overflow-x: auto;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
-        .data-table { width: 100%; border-collapse: collapse; }
+        .data-table { width: 100%; border-collapse: collapse; min-width: 500px; }
         .data-table th, .data-table td {
             padding: 14px 18px;
             text-align: left;
@@ -273,7 +276,7 @@
         .btn-done { background: #dcfce7; color: #16a34a; }
         .btn-delete { background: #ffe4e6; color: #e11d48; }
 
-        /* STYLE GRID UNTUK JURNAL TONTONAN & BUKU SESUAI GAMBAR */
+        /* GRID TONTONAN & BUKU */
         .media-grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -286,7 +289,7 @@
             border: 1px solid rgba(241, 245, 249, 0.9);
             border-radius: 18px;
             padding: 16px;
-            min-height: 250px;
+            min-height: 220px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.01);
             display: flex;
             flex-direction: column;
@@ -337,7 +340,6 @@
             margin-bottom: 3px;
         }
 
-        /* DETAIL STATUS DAN RATING PERTAMA KALI KEMBALI DI SINI */
         .media-item-meta {
             font-size: 10.5px;
             color: #94a3b8;
@@ -379,10 +381,80 @@
             margin: auto 0;
             font-style: italic;
         }
+
+        /* ========================================================
+           MEDIA QUERY: PENYESUAIAN KHUSUS LAYAR HP (RESPONSIF)
+        ======================================================== */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            /* Ubah Sidebar menjadi Navigation Bar di Bawah Layar */
+            .sidebar {
+                width: 100%;
+                height: 65px;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                border-right: none;
+                border-top: 1px solid rgba(226, 232, 240, 0.9);
+                padding: 6px 12px;
+                flex-direction: row;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+            }
+
+            .sidebar-top {
+                flex-direction: row;
+                justify-content: space-around;
+                width: 100%;
+                gap: 4px;
+            }
+
+            .brand, .quote-card {
+                display: none; /* Sembunyikan judul & quote di menu bawah HP agar muat */
+            }
+
+            .menu-btn {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 6px 8px;
+                font-size: 10px;
+                gap: 2px;
+                border-radius: 10px;
+                flex: 1;
+                text-align: center;
+            }
+
+            .menu-btn span {
+                font-size: 18px;
+            }
+
+            /* Area Konten diberi margin bawah agar tidak tertutup Menu Bawah */
+            .main-content {
+                padding: 18px 16px 80px 16px;
+            }
+
+            .greeting-banner {
+                padding: 16px 20px;
+                border-radius: 16px;
+            }
+
+            .greeting-banner h1 {
+                font-size: 18px;
+            }
+
+            .media-grid-container {
+                grid-template-columns: 1fr; /* 1 kolom penuh untuk HP */
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- SIDEBAR NAVIGASI -->
+    <!-- SIDEBAR / NAVIGATION BAR -->
     <div class="sidebar">
         <div class="sidebar-top">
             <div class="brand">
@@ -392,13 +464,13 @@
                 <span>📊</span> Dashboard
             </button>
             <button class="menu-btn" onclick="switchPage('tugas', this)">
-                <span>📝</span> Tugas & Deadline
+                <span>📝</span> Tugas
             </button>
             <button class="menu-btn" onclick="switchPage('jadwal', this)">
-                <span>📅</span> Jadwal Harian
+                <span>📅</span> Jadwal
             </button>
             <button class="menu-btn" onclick="switchPage('entertainment', this)">
-                <span>🎬</span> Jurnal Tontonan & Buku
+                <span>🎬</span> Jurnal
             </button>
         </div>
 
@@ -417,9 +489,9 @@
             <div class="greeting-banner">
                 <div>
                     <h1>Halo, Semangat Hari Ini! 🌸</h1>
-                    <p>Atur aktivitasmu dengan tenang dan nikmati setiap prosesnya.</p>
+                    <p>Atur aktivitasmu dengan tenang dan nikmati prosesnya.</p>
                 </div>
-                <div style="font-size: 36px;">🧁</div>
+                <div style="font-size: 32px;">🧁</div>
             </div>
 
             <div class="grid-stats">
@@ -435,7 +507,7 @@
                 </div>
                 <div class="card-stat">
                     <div class="icon">⏳</div>
-                    <h3>Belum Selesai</h3>
+                    <h3>Pending</h3>
                     <div class="number" id="stat-pending" style="color: #d97706;">0</div>
                 </div>
                 <div class="card-stat">
@@ -445,7 +517,7 @@
                 </div>
             </div>
 
-            <h2 style="font-size: 16px; font-weight: 800; margin-bottom: 14px;">⏰ Agenda Terdekat</h2>
+            <h2 style="font-size: 15px; font-weight: 800; margin-bottom: 12px;">⏰ Agenda Terdekat</h2>
             <div class="table-card">
                 <table class="data-table">
                     <thead>
@@ -462,7 +534,7 @@
 
         <!-- 2. TUGAS & DEADLINE -->
         <div id="page-tugas" class="page">
-            <h1 style="font-size: 20px; font-weight: 800; margin-bottom: 18px;">📝 Kelola Tugas & Deadline</h1>
+            <h1 style="font-size: 18px; font-weight: 800; margin-bottom: 16px;">📝 Kelola Tugas & Deadline</h1>
             <div class="form-container">
                 <form id="form-tugas" onsubmit="addTugas(event)">
                     <div class="form-grid">
@@ -501,7 +573,7 @@
 
         <!-- 3. JADWAL HARIAN -->
         <div id="page-jadwal" class="page">
-            <h1 style="font-size: 20px; font-weight: 800; margin-bottom: 18px;">📅 Pengaturan Jadwal Harian</h1>
+            <h1 style="font-size: 18px; font-weight: 800; margin-bottom: 16px;">📅 Pengaturan Jadwal Harian</h1>
             <div class="form-container">
                 <form id="form-jadwal" onsubmit="addJadwal(event)">
                     <div class="form-grid">
@@ -539,7 +611,7 @@
 
         <!-- 4. JURNAL TONTONAN & BUKU -->
         <div id="page-entertainment" class="page">
-            <h1 style="font-size: 20px; font-weight: 800; margin-bottom: 18px;">🎬 Jurnal Tontonan & Bacaan</h1>
+            <h1 style="font-size: 18px; font-weight: 800; margin-bottom: 16px;">🎬 Jurnal Tontonan & Bacaan</h1>
             
             <div class="form-container">
                 <form id="form-media" onsubmit="addMedia(event)">
@@ -588,7 +660,7 @@
             <div class="media-grid-container" id="main-media-grid"></div>
 
             <!-- SECTION KHUSUS PLAN TO WATCH / READ -->
-            <h2 style="font-size: 16px; font-weight: 800; margin-bottom: 14px; color: #6b21a8;">📌 Plan to Watch / Read (Rencana Nonton & Baca)</h2>
+            <h2 style="font-size: 15px; font-weight: 800; margin-bottom: 12px; color: #6b21a8;">📌 Plan to Watch / Read</h2>
             <div class="media-grid-container" id="plan-media-grid"></div>
 
         </div>
@@ -820,7 +892,6 @@
                 { id: 'Donghua', title: '🐉 Donghua' }
             ];
 
-            // 1. RENDER KATEGORI UTAMA (Sedang Ditonton/Dibaca / Selesai)
             const mainGrid = document.getElementById('main-media-grid');
             mainGrid.innerHTML = '';
 
@@ -859,7 +930,6 @@
                 `;
             });
 
-            // 2. RENDER CARD KHUSUS PLAN TO WATCH / READ
             const planGrid = document.getElementById('plan-media-grid');
             planGrid.innerHTML = '';
 
