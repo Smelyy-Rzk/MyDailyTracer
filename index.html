@@ -12,7 +12,6 @@
             margin: 0;
             padding: 0;
         }
-
         body {
             background: linear-gradient(135deg, #f8f6ff 0%, #fff5f7 50%, #f0f7ff 100%);
             color: #475569;
@@ -20,7 +19,6 @@
             height: 100vh;
             overflow: hidden;
         }
-
         /* SIDEBAR / DESKTOP NAV */
         .sidebar {
             width: 280px;
@@ -33,13 +31,11 @@
             justify-content: space-between;
             flex-shrink: 0;
         }
-
         .sidebar-top {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-
         .brand {
             font-size: 20px;
             font-weight: 800;
@@ -51,13 +47,11 @@
             justify-content: center;
             gap: 8px;
         }
-
         .menu-list {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-
         .menu-btn {
             background: transparent;
             border: none;
@@ -74,18 +68,15 @@
             gap: 12px;
             white-space: nowrap;
         }
-
         .menu-btn:hover {
             background: #f1f5f9;
             color: #7c3aed;
         }
-
         .menu-btn.active {
             background: linear-gradient(135deg, #c4b5fd 0%, #f472b6 100%);
             color: #ffffff;
             box-shadow: 0 8px 16px -4px rgba(196, 181, 253, 0.5);
         }
-
         /* MOTIVASI QUOTE */
         .quote-card {
             background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%);
@@ -96,7 +87,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.02);
             margin-top: 15px;
         }
-
         .quote-card p {
             font-size: 12px;
             font-style: italic;
@@ -104,14 +94,12 @@
             line-height: 1.5;
             margin-bottom: 8px;
         }
-
         .quote-card span {
             font-size: 10px;
             font-weight: 700;
             color: #9d174d;
             display: block;
         }
-
         .btn-refresh-quote {
             background: rgba(255, 255, 255, 0.7);
             border: none;
@@ -123,28 +111,23 @@
             color: #6b21a8;
             font-weight: 700;
         }
-
         /* MAIN CONTENT */
         .main-content {
             flex: 1;
             padding: 32px 36px;
             overflow-y: auto;
         }
-
         .page {
             display: none;
             animation: fadeIn 0.3s ease;
         }
-
         .page.active {
             display: block;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         /* BANNER */
         .greeting-banner {
             background: linear-gradient(135deg, #ddd6fe 0%, #fbcfe8 100%);
@@ -157,18 +140,15 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .greeting-banner h1 {
             font-size: 22px;
             font-weight: 800;
             margin-bottom: 4px;
         }
-
         .greeting-banner p {
             font-size: 13px;
             opacity: 0.85;
         }
-
         /* CARDS & STATS */
         .grid-stats {
             display: grid;
@@ -176,7 +156,6 @@
             gap: 16px;
             margin-bottom: 28px;
         }
-
         .card-stat {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(8px);
@@ -185,11 +164,9 @@
             border: 1px solid #f1f5f9;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
-
         .card-stat .icon { font-size: 22px; margin-bottom: 8px; }
         .card-stat h3 { font-size: 12px; color: #94a3b8; font-weight: 700; }
         .card-stat .number { font-size: 28px; font-weight: 800; color: #334155; }
-
         /* FORM STYLES */
         .form-container {
             background: rgba(255, 255, 255, 0.9);
@@ -199,14 +176,12 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             margin-bottom: 24px;
         }
-
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 12px;
             margin-bottom: 14px;
         }
-
         .input-group label {
             display: block;
             font-size: 11px;
@@ -215,7 +190,6 @@
             margin-bottom: 6px;
             text-transform: uppercase;
         }
-
         input, select, textarea {
             width: 100%;
             padding: 10px 14px;
@@ -226,13 +200,11 @@
             background: #fafafa;
             transition: all 0.2s;
         }
-
         input:focus, select:focus, textarea:focus {
             border-color: #a78bfa;
             background: #fff;
             box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.15);
         }
-
         .btn-submit {
             background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
             color: white;
@@ -245,9 +217,7 @@
             transition: all 0.2s;
             box-shadow: 0 6px 12px rgba(167, 139, 250, 0.3);
         }
-
         .btn-submit:hover { opacity: 0.92; transform: translateY(-1px); }
-
         /* TABLES */
         .table-card {
             background: rgba(255, 255, 255, 0.9);
@@ -256,7 +226,6 @@
             overflow-x: auto;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
-
         .data-table { width: 100%; border-collapse: collapse; min-width: 500px; }
         .data-table th, .data-table td {
             padding: 14px 18px;
@@ -265,14 +234,12 @@
             font-size: 13px;
         }
         .data-table th { background: #fafafa; color: #64748b; font-weight: 700; }
-
         /* GRID CARDS ENTERTAINMENT */
         .grid-media-categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 18px;
         }
-
         .media-category-card {
             background: rgba(255, 255, 255, 0.92);
             border-radius: 18px;
@@ -282,7 +249,6 @@
             display: flex;
             flex-direction: column;
         }
-
         .category-title {
             font-size: 14px;
             font-weight: 800;
@@ -294,14 +260,12 @@
             align-items: center;
             justify-content: space-between;
         }
-
         .category-item-list {
             display: flex;
             flex-direction: column;
             gap: 8px;
             flex: 1;
         }
-
         .media-item {
             background: #fafafa;
             border: 1px solid #f1f5f9;
@@ -311,19 +275,16 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .media-item-info {
             display: flex;
             flex-direction: column;
             gap: 3px;
         }
-
         .media-item-title {
             font-size: 13px;
             font-weight: 700;
             color: #334155;
         }
-
         .media-item-meta {
             font-size: 10px;
             color: #94a3b8;
@@ -331,7 +292,6 @@
             gap: 6px;
             align-items: center;
         }
-
         .empty-category {
             font-size: 12px;
             color: #cbd5e1;
@@ -339,7 +299,6 @@
             padding: 16px 0;
             font-style: italic;
         }
-
         /* BADGES */
         .badge {
             padding: 4px 10px;
@@ -348,11 +307,9 @@
             font-weight: 700;
             display: inline-block;
         }
-
         .badge.pending { background: #fef3c7; color: #d97706; }
         .badge.completed { background: #dcfce7; color: #16a34a; }
         .badge.overdue { background: #ffe4e6; color: #e11d48; }
-
         .btn-action {
             padding: 6px 10px;
             font-size: 11px;
@@ -362,9 +319,20 @@
             cursor: pointer;
             margin-right: 4px;
         }
-
         .btn-done { background: #dcfce7; color: #16a34a; }
         .btn-delete { background: #ffe4e6; color: #e11d48; }
+
+        /* STATUS SINKRONISASI FIREBASE */
+        .sync-badge {
+            font-size: 10px;
+            font-weight: 700;
+            text-align: center;
+            padding: 4px 8px;
+            border-radius: 8px;
+            background: #e0f2fe;
+            color: #0284c7;
+            margin-bottom: 12px;
+        }
 
         /* RESPONSIVE HP */
         @media (max-width: 768px) {
@@ -372,68 +340,55 @@
                 flex-direction: column;
                 height: 100vh;
             }
-
             .sidebar {
                 width: 100%;
                 border-right: none;
                 border-bottom: 1px solid rgba(226, 232, 240, 0.8);
                 padding: 12px 16px;
             }
-
             .brand {
                 font-size: 16px;
                 margin-bottom: 8px;
             }
-
             .sidebar-top {
                 gap: 6px;
             }
-
             .menu-list {
                 flex-direction: row;
                 overflow-x: auto;
                 padding-bottom: 4px;
             }
-
             .menu-btn {
                 padding: 8px 12px;
                 font-size: 12px;
                 border-radius: 10px;
                 flex-shrink: 0;
             }
-
             .quote-card {
                 display: none;
             }
-
             .main-content {
                 padding: 16px;
             }
-
             .greeting-banner {
                 padding: 16px 20px;
                 border-radius: 16px;
                 margin-bottom: 16px;
             }
-
             .greeting-banner h1 {
                 font-size: 18px;
             }
-
             .grid-stats {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
                 margin-bottom: 20px;
             }
-
             .card-stat {
                 padding: 14px;
             }
-
             .card-stat .number {
                 font-size: 22px;
             }
-
             .grid-media-categories {
                 grid-template-columns: 1fr;
             }
@@ -447,6 +402,7 @@
             <div class="brand">
                 <span>✨</span> DailyPlanner
             </div>
+            <div class="sync-badge" id="sync-status">🔄 Menghubungkan Cloud...</div>
             <div class="menu-list">
                 <button class="menu-btn active" onclick="switchPage('dashboard', this)">
                     <span>📊</span> Dashboard
@@ -462,7 +418,6 @@
                 </button>
             </div>
         </div>
-
         <div class="quote-card">
             <p id="quote-text">"Satu langkah kecil hari ini adalah awal dari pencapaian besar besok."</p>
             <span id="quote-author">~ Semangat Ya! ✨</span>
@@ -649,6 +604,66 @@
         </div>
     </div>
 
+    <!-- FIREBASE REALTIME SYNC (TAMBAHAN CLOUD DENGAN LOGIKA UTUH) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // ⚠️ ISIKAN DENGAN CONFIG FIREBASE KAMU DI SINI ⚠️
+        const firebaseConfig = {
+        apiKey: "API_KEY_MILIKMU",
+            authDomain: "AUTH_DOMAIN_MILIKMU",
+            databaseURL: "DATABASE_URL_MILIKMU",
+            projectId: "PROJECT_ID_MILIKMU",
+            storageBucket: "STORAGE_BUCKET_MILIKMU",
+            messagingSenderId: "SENDER_ID_MILIKMU",
+            appId: "APP_ID_MILIKMU"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const dbRef = ref(db, 'plannerData');
+
+        // AMBIL DATA DARI FIREBASE SECARA REALTIME
+        onValue(dbRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                window.dataTugas = data.tugas || [];
+                window.dataJadwal = data.jadwal || [];
+                window.dataMedia = data.media || [];
+            }
+            const statusEl = document.getElementById('sync-status');
+            if (statusEl) {
+                statusEl.innerText = '🟢 Sync Cloud';
+                statusEl.style.background = '#dcfce7';
+                statusEl.style.color = '#16a34a';
+            }
+            window.renderAll();
+        }, (error) => {
+            const statusEl = document.getElementById('sync-status');
+            if (statusEl) {
+                statusEl.innerText = '🔴 Offline / Local';
+                statusEl.style.background = '#ffe4e6';
+                statusEl.style.color = '#e11d48';
+            }
+        });
+
+        // SIMPAN DATA KE FIREBASE
+        window.saveAndRender = function() {
+            set(dbRef, {
+                tugas: window.dataTugas,
+                jadwal: window.dataJadwal,
+                media: window.dataMedia
+            });
+            // Backup LocalStorage
+            localStorage.setItem('app_tugas_v3', JSON.stringify(window.dataTugas));
+            localStorage.setItem('app_jadwal_v3', JSON.stringify(window.dataJadwal));
+            localStorage.setItem('app_media_v3', JSON.stringify(window.dataMedia));
+            window.renderAll();
+        };
+    </script>
+
+    <!-- LOGIKA ASLI DAN LENGKAP KODE KAMU -->
     <script>
         // DAFTAR KATEGORI SAMA PERSIS
         const categoriesList = [
@@ -662,10 +677,10 @@
             { id: 'Donghua', name: '🇨🇳 Donghua' }
         ];
 
-        // DATA STATE
-        let dataTugas = JSON.parse(localStorage.getItem('app_tugas_v3')) || [];
-        let dataJadwal = JSON.parse(localStorage.getItem('app_jadwal_v3')) || [];
-        let dataMedia = JSON.parse(localStorage.getItem('app_media_v3')) || [];
+        // DATA STATE UTAMA (Global Scope)
+        window.dataTugas = JSON.parse(localStorage.getItem('app_tugas_v3')) || [];
+        window.dataJadwal = JSON.parse(localStorage.getItem('app_jadwal_v3')) || [];
+        window.dataMedia = JSON.parse(localStorage.getItem('app_media_v3')) || [];
 
         // QUOTES
         const quotes = [
@@ -695,59 +710,62 @@
         // TUGAS
         function addTugas(e) {
             e.preventDefault();
-            dataTugas.push({
+            window.dataTugas.push({
                 id: Date.now(),
                 nama: document.getElementById('tugas-nama').value,
                 tglDiberikan: document.getElementById('tugas-tgl-diberikan').value,
                 deadline: document.getElementById('tugas-deadline').value,
                 isCompleted: false
             });
-            saveAndRender();
+            window.saveAndRender();
             document.getElementById('form-tugas').reset();
         }
 
         // JADWAL
         function addJadwal(e) {
             e.preventDefault();
-            dataJadwal.push({
+            window.dataJadwal.push({
                 id: Date.now(),
                 nama: document.getElementById('jadwal-nama').value,
                 tgl: document.getElementById('jadwal-tgl').value,
                 jam: document.getElementById('jadwal-jam').value
             });
-            dataJadwal.sort((a, b) => new Date(`${a.tgl}T${a.jam}`) - new Date(`${b.tgl}T${b.jam}`));
-            saveAndRender();
+            window.dataJadwal.sort((a, b) => new Date(`${a.tgl}T${a.jam}`) - new Date(`${b.tgl}T${b.jam}`));
+            window.saveAndRender();
             document.getElementById('form-jadwal').reset();
         }
 
         // ENTERTAINMENT
         function addMedia(e) {
             e.preventDefault();
-            dataMedia.push({
+            window.dataMedia.push({
                 id: Date.now(),
                 judul: document.getElementById('media-judul').value,
                 kategori: document.getElementById('media-kategori').value,
                 status: document.getElementById('media-status').value,
                 rating: document.getElementById('media-rating').value
             });
-            saveAndRender();
+            window.saveAndRender();
             document.getElementById('form-media').reset();
         }
 
         function toggleTugas(id) {
-            dataTugas = dataTugas.map(t => t.id === id ? { ...t, isCompleted: !t.isCompleted } : t);
-            saveAndRender();
+            window.dataTugas = window.dataTugas.map(t => t.id === id ? { ...t, isCompleted: !t.isCompleted } : t);
+            window.saveAndRender();
         }
 
-        function deleteTugas(id) { dataTugas = dataTugas.filter(t => t.id !== id); saveAndRender(); }
-        function deleteJadwal(id) { dataJadwal = dataJadwal.filter(j => j.id !== id); saveAndRender(); }
-        function deleteMedia(id) { dataMedia = dataMedia.filter(m => m.id !== id); saveAndRender(); }
+        function deleteTugas(id) { window.dataTugas = window.dataTugas.filter(t => t.id !== id); window.saveAndRender(); }
+        function deleteJadwal(id) { window.dataJadwal = window.dataJadwal.filter(j => j.id !== id); window.saveAndRender(); }
+        function deleteMedia(id) { window.dataMedia = window.dataMedia.filter(m => m.id !== id); window.saveAndRender(); }
 
-        function saveAndRender() {
-            localStorage.setItem('app_tugas_v3', JSON.stringify(dataTugas));
-            localStorage.setItem('app_jadwal_v3', JSON.stringify(dataJadwal));
-            localStorage.setItem('app_media_v3', JSON.stringify(dataMedia));
-            renderAll();
+        // Pengganti lokal saat awal belum muat firebase
+        if (!window.saveAndRender) {
+            window.saveAndRender = function() {
+                localStorage.setItem('app_tugas_v3', JSON.stringify(window.dataTugas));
+                localStorage.setItem('app_jadwal_v3', JSON.stringify(window.dataJadwal));
+                localStorage.setItem('app_media_v3', JSON.stringify(window.dataMedia));
+                renderAll();
+            };
         }
 
         function renderAll() {
@@ -761,13 +779,13 @@
             const todayStr = new Date().toISOString().split('T')[0];
             let completed = 0, pending = 0, overdue = 0;
 
-            dataTugas.forEach(t => {
+            (window.dataTugas || []).forEach(t => {
                 if (t.isCompleted) completed++;
                 else if (t.deadline < todayStr) overdue++;
                 else pending++;
             });
 
-            document.getElementById('stat-total').innerText = dataTugas.length;
+            document.getElementById('stat-total').innerText = (window.dataTugas || []).length;
             document.getElementById('stat-completed').innerText = completed;
             document.getElementById('stat-pending').innerText = pending;
             document.getElementById('stat-overdue').innerText = overdue;
@@ -775,7 +793,7 @@
             const agendaTbody = document.getElementById('dashboard-agenda-list');
             agendaTbody.innerHTML = '';
             
-            const upcoming = dataJadwal.slice(0, 5);
+            const upcoming = (window.dataJadwal || []).slice(0, 5);
             if (upcoming.length === 0) {
                 agendaTbody.innerHTML = '<tr><td colspan="3" style="text-align:center; color:#94a3b8; padding:20px;">Belum ada jadwal. Santai dulu! ✨</td></tr>';
             } else {
@@ -790,12 +808,12 @@
             tbody.innerHTML = '';
             const todayStr = new Date().toISOString().split('T')[0];
 
-            if (dataTugas.length === 0) {
+            if ((window.dataTugas || []).length === 0) {
                 tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#94a3b8; padding:20px;">Tugas kosong! 🎉</td></tr>';
                 return;
             }
 
-            dataTugas.forEach(t => {
+            (window.dataTugas || []).forEach(t => {
                 let badge = '<span class="badge pending">Pending</span>';
                 if (t.isCompleted) badge = '<span class="badge completed">Selesai ✨</span>';
                 else if (t.deadline < todayStr) badge = '<span class="badge overdue">Terlambat ⚠️</span>';
@@ -817,11 +835,11 @@
         function renderJadwal() {
             const tbody = document.getElementById('jadwal-list');
             tbody.innerHTML = '';
-            if (dataJadwal.length === 0) {
+            if ((window.dataJadwal || []).length === 0) {
                 tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#94a3b8; padding:20px;">Belum ada agenda. 🌸</td></tr>';
                 return;
             }
-            dataJadwal.forEach(j => {
+            (window.dataJadwal || []).forEach(j => {
                 tbody.innerHTML += `
                     <tr>
                         <td>${formatDate(j.tgl)}</td>
@@ -838,7 +856,7 @@
             container.innerHTML = '';
 
             categoriesList.forEach(cat => {
-                const itemsInCat = dataMedia.filter(m => m.kategori === cat.id);
+                const itemsInCat = (window.dataMedia || []).filter(m => m.kategori === cat.id);
 
                 let itemsHTML = '';
                 if (itemsInCat.length === 0) {
@@ -878,6 +896,7 @@
             return new Date(dateStr).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
         }
 
+        window.renderAll = renderAll;
         renderAll();
     </script>
 </body>
